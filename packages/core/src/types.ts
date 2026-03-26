@@ -2,7 +2,7 @@ import type { File as BabelFile } from '@babel/types';
 
 export type Severity = 'critical' | 'high' | 'warning' | 'info';
 
-export type RuleCategory = 'security' | 'performance' | 'quality';
+export type RuleCategory = 'security' | 'performance' | 'quality' | 'ai-codegen';
 
 export interface Location {
   file: string;
