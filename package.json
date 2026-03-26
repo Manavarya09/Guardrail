@@ -28,10 +28,10 @@
   "devDependencies": {
     "@types/babel__generator": "^7.27.0",
     "@types/node": "^20.11.0",
-    "@vitest/coverage-v8": "^4.1.2",
+    "@vitest/coverage-v8": "^2.1.9",
     "tsx": "^4.7.0",
     "typescript": "^5.3.3",
-    "vitest": "^4.1.2"
+    "vitest": "^2.1.9"
   },
   "engines": {
     "node": ">=18.0.0"
