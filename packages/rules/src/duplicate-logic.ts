@@ -1,7 +1,7 @@
 import traverse from '@babel/traverse';
 import generate from '@babel/generator';
 // @ts-ignore — generator types
-import type { Rule, RuleContext, Violation } from '@guardrail/core';
+import type { Rule, RuleContext, Violation } from '@guardrail-ai/core';
 
 /**
  * Detects duplicate logic by comparing normalized AST representations

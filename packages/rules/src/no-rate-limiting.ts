@@ -1,5 +1,5 @@
 import traverse from '@babel/traverse';
-import type { Rule, RuleContext, Violation } from '@guardrail/core';
+import type { Rule, RuleContext, Violation } from '@guardrail-ai/core';
 
 const RATE_LIMIT_PACKAGES = new Set([
   'express-rate-limit',

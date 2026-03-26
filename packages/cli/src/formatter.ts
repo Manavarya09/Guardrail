@@ -1,5 +1,5 @@
 import { relative } from 'path';
-import type { ScanSummary, ScanResult, Violation, Severity } from '@guardrail/core';
+import type { ScanSummary, ScanResult, Violation, Severity } from '@guardrail-ai/core';
 import * as c from './colors.js';
 
 const SEVERITY_ICON: Record<Severity, string> = {

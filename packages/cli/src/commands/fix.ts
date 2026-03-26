@@ -1,8 +1,8 @@
 import { resolve } from 'path';
-import { GuardrailEngine, loadConfig, mergeConfigs } from '@guardrail/core';
-import type { Severity } from '@guardrail/core';
-import { builtinRules } from '@guardrail/rules';
-import { FixerEngine } from '@guardrail/fixer';
+import { GuardrailEngine, loadConfig, mergeConfigs } from '@guardrail-ai/core';
+import type { Severity } from '@guardrail-ai/core';
+import { builtinRules } from '@guardrail-ai/rules';
+import { FixerEngine } from '@guardrail-ai/fixer';
 import { formatDiff } from '../formatter.js';
 import * as c from '../colors.js';
 

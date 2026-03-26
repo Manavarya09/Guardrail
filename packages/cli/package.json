@@ -1,5 +1,5 @@
 {
-  "name": "@guardrail/cli",
+  "name": "@guardrail-ai/cli",
   "version": "0.1.0",
   "description": "CLI for Guardrail — scan and fix AI-generated code for security, performance, and quality issues",
   "main": "dist/index.js",
@@ -35,9 +35,9 @@
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
-    "@guardrail/core": "^0.1.0",
-    "@guardrail/fixer": "^0.1.0",
-    "@guardrail/rules": "^0.1.0",
+    "@guardrail-ai/core": "^0.1.0",
+    "@guardrail-ai/fixer": "^0.1.0",
+    "@guardrail-ai/rules": "^0.1.0",
     "chokidar": "^4.0.3",
     "commander": "^12.0.0"
   },

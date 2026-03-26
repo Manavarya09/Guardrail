@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { parseSource } from '@guardrail/core';
+import { parseSource } from '@guardrail-ai/core';
 import unsafeRegex from '../unsafe-regex.js';
 import noEval from '../no-eval.js';
 import noSecretsInLogs from '../no-secrets-in-logs.js';

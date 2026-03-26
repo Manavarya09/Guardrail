@@ -1,6 +1,6 @@
 import { relative } from 'path';
 import { writeFileSync } from 'fs';
-import type { ScanSummary } from '@guardrail/core';
+import type { ScanSummary } from '@guardrail-ai/core';
 
 export function generateHtmlReport(
   summary: ScanSummary,

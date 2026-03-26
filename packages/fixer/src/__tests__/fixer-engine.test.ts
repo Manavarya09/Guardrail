@@ -3,7 +3,7 @@ import { FixerEngine } from '../fixer-engine.js';
 import { writeFileSync, readFileSync, mkdirSync, rmSync } from 'fs';
 import { join } from 'path';
 import { tmpdir } from 'os';
-import type { Violation } from '@guardrail/core';
+import type { Violation } from '@guardrail-ai/core';
 
 function makeTempFile(content: string): { path: string; cleanup: () => void } {
   const dir = join(tmpdir(), `guardrail-fix-${Date.now()}`);

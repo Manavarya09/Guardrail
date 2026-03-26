@@ -1,4 +1,4 @@
-# @guardrail/mcp
+# @guardrail-ai/mcp
 
 Model Context Protocol (MCP) server for Guardrail. Use Guardrail as a Claude Code plugin or with any MCP-compatible AI assistant.
 
@@ -11,7 +11,7 @@ Add to your Claude Code settings (`.claude/settings.json`):
   "mcpServers": {
     "guardrail": {
       "command": "npx",
-      "args": ["@guardrail/mcp"]
+      "args": ["@guardrail-ai/mcp"]
     }
   }
 }

@@ -28,7 +28,7 @@ packages/
 
 ```typescript
 import traverse from '@babel/traverse';
-import type { Rule, RuleContext, Violation } from '@guardrail/core';
+import type { Rule, RuleContext, Violation } from '@guardrail-ai/core';
 
 const myRule: Rule = {
   id: 'category/rule-name',       // e.g. security/xss-vulnerability
@@ -65,7 +65,7 @@ Each test should cover:
 
 ```typescript
 import { describe, it, expect } from 'vitest';
-import { parseSource } from '@guardrail/core';
+import { parseSource } from '@guardrail-ai/core';
 import rule from '../your-rule.js';
 
 function detect(source: string) {

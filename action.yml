@@ -51,7 +51,7 @@ runs:
 
     - name: Install Guardrail
       shell: bash
-      run: npm install -g @guardrail/cli@latest 2>/dev/null || npx @guardrail/cli --version
+      run: npm install -g @guardrail-ai/cli@latest 2>/dev/null || npx @guardrail-ai/cli --version
 
     - name: Run Guardrail Scan
       id: scan

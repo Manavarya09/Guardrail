@@ -1,5 +1,5 @@
 import traverse from '@babel/traverse';
-import type { Rule, RuleContext, Violation } from '@guardrail/core';
+import type { Rule, RuleContext, Violation } from '@guardrail-ai/core';
 
 const LOG_METHODS = new Set(['log', 'debug', 'info', 'warn', 'error', 'trace']);
 const RESPONSE_METHODS = new Set(['json', 'send', 'write', 'end']);

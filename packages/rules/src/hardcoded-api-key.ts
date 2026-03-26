@@ -1,5 +1,5 @@
 import traverse from '@babel/traverse';
-import type { Rule, RuleContext, Violation } from '@guardrail/core';
+import type { Rule, RuleContext, Violation } from '@guardrail-ai/core';
 
 /**
  * Detects hardcoded API keys, secrets, and tokens in source code.

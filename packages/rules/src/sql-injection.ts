@@ -1,6 +1,6 @@
 import traverse from '@babel/traverse';
 import * as t from '@babel/types';
-import type { Rule, RuleContext, Violation } from '@guardrail/core';
+import type { Rule, RuleContext, Violation } from '@guardrail-ai/core';
 
 /**
  * Detects SQL injection vulnerabilities from string concatenation

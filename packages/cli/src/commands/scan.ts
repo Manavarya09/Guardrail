@@ -1,7 +1,7 @@
 import { resolve, join } from 'path';
-import { GuardrailEngine, loadConfig, mergeConfigs } from '@guardrail/core';
-import type { Severity } from '@guardrail/core';
-import { builtinRules } from '@guardrail/rules';
+import { GuardrailEngine, loadConfig, mergeConfigs } from '@guardrail-ai/core';
+import type { Severity } from '@guardrail-ai/core';
+import { builtinRules } from '@guardrail-ai/rules';
 import { formatSummary } from '../formatter.js';
 import { generateHtmlReport } from '../reporters/html-reporter.js';
 import * as c from '../colors.js';

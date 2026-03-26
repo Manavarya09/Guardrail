@@ -1,5 +1,5 @@
 import traverse from '@babel/traverse';
-import type { Rule, RuleContext, Violation } from '@guardrail/core';
+import type { Rule, RuleContext, Violation } from '@guardrail-ai/core';
 
 const SENSITIVE_PATTERNS = /(?:password|secret|token|key|auth|credential|private|ssn|credit.?card)/i;
 const LOG_METHODS = new Set(['log', 'info', 'debug', 'warn', 'error', 'trace']);

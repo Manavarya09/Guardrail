@@ -1,5 +1,5 @@
 import traverse from '@babel/traverse';
-import type { Rule, RuleContext, Violation } from '@guardrail/core';
+import type { Rule, RuleContext, Violation } from '@guardrail-ai/core';
 
 const COMMENT_PATTERNS =
   /\b(TODO|FIXME|HACK|PLACEHOLDER|XXX|TEMP|implement\s*(this|later|here)|add\s*(logic|code|implementation)\s*here|replace\s*(this|with)|your[_\s-]*(code|logic|implementation)\s*here)\b/i;

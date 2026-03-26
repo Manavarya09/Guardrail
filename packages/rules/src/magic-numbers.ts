@@ -1,5 +1,5 @@
 import traverse from '@babel/traverse';
-import type { Rule, RuleContext, Violation } from '@guardrail/core';
+import type { Rule, RuleContext, Violation } from '@guardrail-ai/core';
 
 const ALLOWED_NUMBERS = new Set([0, 1, -1, 2, 10, 100, 1000, 24, 60, 1024]);
 

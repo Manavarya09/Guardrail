@@ -1,4 +1,4 @@
-import type { Rule } from '@guardrail/core';
+import type { Rule } from '@guardrail-ai/core';
 
 // Security
 import hardcodedApiKeyRule from './hardcoded-api-key.js';

@@ -298,9 +298,9 @@ export default function LandingPage() {
         <FadeIn className="text-center">
           <div className="inline-flex items-center gap-3 px-6 py-3 rounded-xl border border-neutral-800 bg-neutral-950 font-mono text-sm">
             <span className="text-neutral-500">$</span>
-            <span className="text-neutral-200">npx @guardrail/cli scan .</span>
+            <span className="text-neutral-200">npx @guardrail-ai/cli scan .</span>
             <button
-              onClick={() => navigator.clipboard?.writeText("npx @guardrail/cli scan .")}
+              onClick={() => navigator.clipboard?.writeText("npx @guardrail-ai/cli scan .")}
               className="text-neutral-500 hover:text-white transition-colors ml-4"
               title="Copy"
             >

@@ -1,5 +1,5 @@
 {
-  "name": "@guardrail/core",
+  "name": "@guardrail-ai/core",
   "version": "0.1.0",
   "description": "Core rule engine, types, and utilities for Guardrail",
   "main": "dist/index.js",

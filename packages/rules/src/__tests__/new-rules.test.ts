@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { parseSource } from '@guardrail/core';
+import { parseSource } from '@guardrail-ai/core';
 
 import hallucinatedImport from '../hallucinated-import.js';
 import placeholderCode from '../placeholder-code.js';

@@ -33,22 +33,22 @@ jobs:
       - name: Test
         run: npm test
 
-      - name: Publish @guardrail/core
+      - name: Publish @guardrail-ai/core
         run: npm publish --workspace=packages/core --provenance
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - name: Publish @guardrail/rules
+      - name: Publish @guardrail-ai/rules
         run: npm publish --workspace=packages/rules --provenance
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - name: Publish @guardrail/fixer
+      - name: Publish @guardrail-ai/fixer
         run: npm publish --workspace=packages/fixer --provenance
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - name: Publish @guardrail/cli
+      - name: Publish @guardrail-ai/cli
         run: npm publish --workspace=packages/cli --provenance
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

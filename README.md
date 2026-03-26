@@ -17,7 +17,7 @@ Scan and fix security issues, performance problems, bad patterns, and AI-specifi
 ---
 
 ```bash
-npx @guardrail/cli scan .
+npx @guardrail-ai/cli scan .
 ```
 
 ```
@@ -66,25 +66,25 @@ AI code generators (Copilot, ChatGPT, Claude) are fast — but they produce patt
 
 ```bash
 # Scan a directory
-npx @guardrail/cli scan ./src
+npx @guardrail-ai/cli scan ./src
 
 # Auto-fix issues
-npx @guardrail/cli fix ./src
+npx @guardrail-ai/cli fix ./src
 
 # Dry-run fixes (show diffs without applying)
-npx @guardrail/cli fix ./src --dry-run
+npx @guardrail-ai/cli fix ./src --dry-run
 
 # Watch mode
-npx @guardrail/cli watch ./src
+npx @guardrail-ai/cli watch ./src
 
 # Generate HTML report
-npx @guardrail/cli scan ./src --report html
+npx @guardrail-ai/cli scan ./src --report html
 
 # JSON output (for CI)
-npx @guardrail/cli scan ./src --json
+npx @guardrail-ai/cli scan ./src --json
 
 # Initialize config
-npx @guardrail/cli init
+npx @guardrail-ai/cli init
 ```
 
 ---
@@ -159,7 +159,7 @@ Use Guardrail directly inside Claude Code as an MCP server:
   "mcpServers": {
     "guardrail": {
       "command": "npx",
-      "args": ["@guardrail/mcp"]
+      "args": ["@guardrail-ai/mcp"]
     }
   }
 }
@@ -195,7 +195,7 @@ Write custom rules as npm packages:
 
 ```typescript
 // guardrail-plugin-my-rules/index.ts
-import type { GuardrailPlugin } from '@guardrail/core';
+import type { GuardrailPlugin } from '@guardrail-ai/core';
 
 const plugin: GuardrailPlugin = {
   name: 'my-rules',

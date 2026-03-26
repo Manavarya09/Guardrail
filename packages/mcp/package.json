@@ -1,5 +1,5 @@
 {
-  "name": "@guardrail/mcp",
+  "name": "@guardrail-ai/mcp",
   "version": "0.1.0",
   "description": "Model Context Protocol (MCP) server for Guardrail — use as a Claude Code plugin",
   "main": "dist/index.js",
@@ -23,9 +23,9 @@
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
-    "@guardrail/core": "*",
-    "@guardrail/rules": "*",
-    "@guardrail/fixer": "*",
+    "@guardrail-ai/core": "*",
+    "@guardrail-ai/rules": "*",
+    "@guardrail-ai/fixer": "*",
     "@modelcontextprotocol/sdk": "^1.12.1"
   },
   "license": "MIT"

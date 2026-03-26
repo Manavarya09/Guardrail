@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { parseSource } from '@guardrail/core';
+import { parseSource } from '@guardrail-ai/core';
 import rule from '../inefficient-loop.js';
 
 function detect(source: string) {

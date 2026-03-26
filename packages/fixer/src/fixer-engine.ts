@@ -1,6 +1,6 @@
 import { readFile, writeFile } from 'fs/promises';
 import { createTwoFilesPatch } from 'diff';
-import type { Violation, FixSuggestion } from '@guardrail/core';
+import type { Violation, FixSuggestion } from '@guardrail-ai/core';
 
 export interface FixResult {
   filePath: string;

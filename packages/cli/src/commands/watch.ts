@@ -1,8 +1,8 @@
 import { resolve, relative } from 'path';
 import { watch } from 'chokidar';
-import { GuardrailEngine, loadConfig, mergeConfigs } from '@guardrail/core';
-import type { Severity } from '@guardrail/core';
-import { builtinRules } from '@guardrail/rules';
+import { GuardrailEngine, loadConfig, mergeConfigs } from '@guardrail-ai/core';
+import type { Severity } from '@guardrail-ai/core';
+import { builtinRules } from '@guardrail-ai/rules';
 import { formatFileResult } from '../formatter.js';
 import * as c from '../colors.js';
 

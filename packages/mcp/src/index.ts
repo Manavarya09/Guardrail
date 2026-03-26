@@ -3,9 +3,9 @@
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
 import { z } from 'zod';
-import { GuardrailEngine } from '@guardrail/core';
-import { builtinRules } from '@guardrail/rules';
-import { FixerEngine } from '@guardrail/fixer';
+import { GuardrailEngine } from '@guardrail-ai/core';
+import { builtinRules } from '@guardrail-ai/rules';
+import { FixerEngine } from '@guardrail-ai/fixer';
 
 const server = new McpServer({
   name: 'guardrail',
