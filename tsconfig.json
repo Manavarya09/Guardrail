@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "commonjs",
+    "lib": ["ES2022"],
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "moduleResolution": "node",
+    "composite": true
+  },
+  "references": [
+    { "path": "packages/core" },
+    { "path": "packages/rules" },
+    { "path": "packages/fixer" },
+    { "path": "packages/cli" }
+  ]
+}

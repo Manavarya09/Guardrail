@@ -1,0 +1,21 @@
+{
+  "name": "@guardrail/core",
+  "version": "0.1.0",
+  "description": "Core rule engine, types, and utilities for Guardrail",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "node --test dist/**/*.test.js"
+  },
+  "dependencies": {
+    "@babel/parser": "^7.23.6",
+    "@babel/traverse": "^7.23.6",
+    "@babel/types": "^7.23.6",
+    "fast-glob": "^3.3.2"
+  },
+  "devDependencies": {
+    "@types/babel__traverse": "^7.20.4"
+  },
+  "license": "MIT"
+}

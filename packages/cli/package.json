@@ -1,0 +1,21 @@
+{
+  "name": "@guardrail/cli",
+  "version": "0.1.0",
+  "description": "CLI interface for Guardrail code scanner",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "guardrail": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsx src/index.ts"
+  },
+  "dependencies": {
+    "@guardrail/core": "*",
+    "@guardrail/rules": "*",
+    "@guardrail/fixer": "*",
+    "commander": "^12.0.0"
+  },
+  "license": "MIT"
+}

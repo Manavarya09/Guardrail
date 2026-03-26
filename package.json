@@ -1,0 +1,36 @@
+{
+  "name": "guardrail",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Scan and fix AI-generated code for security, performance, and quality issues",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces",
+    "dev": "tsx packages/cli/src/index.ts",
+    "test": "npm test --workspaces --if-present",
+    "clean": "rm -rf packages/*/dist",
+    "lint": "eslint packages/*/src/**/*.ts",
+    "typecheck": "tsc --build"
+  },
+  "keywords": [
+    "security",
+    "code-quality",
+    "ast",
+    "static-analysis",
+    "ai-code",
+    "guardrail"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/babel__generator": "^7.27.0",
+    "@types/node": "^20.11.0",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

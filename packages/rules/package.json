@@ -1,0 +1,19 @@
+{
+  "name": "@guardrail/rules",
+  "version": "0.1.0",
+  "description": "Built-in rules for Guardrail",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@guardrail/core": "*",
+    "@babel/traverse": "^7.23.6",
+    "@babel/types": "^7.23.6"
+  },
+  "devDependencies": {
+    "@types/babel__traverse": "^7.20.4"
+  },
+  "license": "MIT"
+}
