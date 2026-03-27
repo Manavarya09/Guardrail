@@ -30,6 +30,10 @@ const overlyBroadCatchRule: Rule = {
             stmt.expression.callee.object.type === 'Identifier' &&
             stmt.expression.callee.object.name === 'console'
           ) {
+            const param = path.node.param;
+            const paramName =
+              param?.type === 'Identifier' ? param.name : 'e';
+
             violations.push({
               ruleId: 'ai-codegen/overly-broad-catch',
               severity: 'warning',
@@ -40,6 +44,22 @@ const overlyBroadCatchRule: Rule = {
                 line: path.node.loc?.start.line ?? 0,
                 column: path.node.loc?.start.column ?? 0,
               },
+              fix: stmt.loc
+                ? {
+                    description: 'Add rethrow after error logging',
+                    range: {
+                      start: {
+                        line: stmt.loc.end.line,
+                        column: stmt.loc.end.column,
+                      },
+                      end: {
+                        line: stmt.loc.end.line,
+                        column: stmt.loc.end.column,
+                      },
+                    },
+                    replacement: `\n    throw ${paramName};`,
+                  }
+                : undefined,
             });
           }
         }

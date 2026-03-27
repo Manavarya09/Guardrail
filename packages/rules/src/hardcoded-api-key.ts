@@ -62,6 +62,22 @@ const hardcodedApiKeyRule: Rule = {
                 line: id.loc?.start.line ?? 0,
                 column: id.loc?.start.column ?? 0,
               },
+              fix: init.loc
+                ? {
+                    description: `Replace hardcoded secret with process.env.${id.name.toUpperCase()}`,
+                    range: {
+                      start: {
+                        line: init.loc.start.line,
+                        column: init.loc.start.column,
+                      },
+                      end: {
+                        line: init.loc.end.line,
+                        column: init.loc.end.column,
+                      },
+                    },
+                    replacement: `process.env.${id.name.toUpperCase()} ?? ''`,
+                  }
+                : undefined,
             });
           }
         }

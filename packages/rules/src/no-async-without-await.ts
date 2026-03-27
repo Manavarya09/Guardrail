@@ -72,6 +72,22 @@ const noAsyncWithoutAwaitRule: Rule = {
               line: path.node.loc?.start.line ?? 0,
               column: path.node.loc?.start.column ?? 0,
             },
+            fix: path.node.loc
+              ? {
+                  description: `Remove unnecessary async keyword from "${name}"`,
+                  range: {
+                    start: {
+                      line: path.node.loc.start.line,
+                      column: path.node.loc.start.column,
+                    },
+                    end: {
+                      line: path.node.loc.start.line,
+                      column: path.node.loc.start.column + 6,
+                    },
+                  },
+                  replacement: '',
+                }
+              : undefined,
           });
         }
       },

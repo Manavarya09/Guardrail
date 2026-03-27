@@ -28,6 +28,22 @@ const anyTypeAbuseRule: Rule = {
             line: path.node.loc?.start.line ?? 0,
             column: path.node.loc?.start.column ?? 0,
           },
+          fix: path.node.loc
+            ? {
+                description: 'Replace `any` with `unknown`',
+                range: {
+                  start: {
+                    line: path.node.loc.start.line,
+                    column: path.node.loc.start.column,
+                  },
+                  end: {
+                    line: path.node.loc.end.line,
+                    column: path.node.loc.end.column,
+                  },
+                },
+                replacement: 'unknown',
+              }
+            : undefined,
         });
       },
     });

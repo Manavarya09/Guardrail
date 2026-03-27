@@ -55,6 +55,23 @@ const insecureCookieRule: Rule = {
                   line: path.node.loc?.start.line ?? 0,
                   column: path.node.loc?.start.column ?? 0,
                 },
+                fix: path.node.loc
+                  ? {
+                      description: `Add security flags to "${cookieName}" cookie`,
+                      range: {
+                        start: {
+                          line: path.node.loc.end.line,
+                          column: path.node.loc.end.column - 1,
+                        },
+                        end: {
+                          line: path.node.loc.end.line,
+                          column: path.node.loc.end.column - 1,
+                        },
+                      },
+                      replacement:
+                        ", { httpOnly: true, secure: true, sameSite: 'strict' }",
+                    }
+                  : undefined,
               });
             }
             return;
@@ -98,6 +115,23 @@ const insecureCookieRule: Rule = {
                 line: options.loc?.start.line ?? path.node.loc?.start.line ?? 0,
                 column: options.loc?.start.column ?? path.node.loc?.start.column ?? 0,
               },
+              fix: options.loc
+                ? {
+                    description: `Fix security flags on "${cookieName}" cookie`,
+                    range: {
+                      start: {
+                        line: options.loc.start.line,
+                        column: options.loc.start.column,
+                      },
+                      end: {
+                        line: options.loc.end.line,
+                        column: options.loc.end.column,
+                      },
+                    },
+                    replacement:
+                      "{ httpOnly: true, secure: true, sameSite: 'strict' }",
+                  }
+                : undefined,
             });
           }
         }

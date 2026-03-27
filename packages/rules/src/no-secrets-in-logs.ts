@@ -42,6 +42,22 @@ const noSecretsInLogsRule: Rule = {
                   line: path.node.loc?.start.line ?? 0,
                   column: path.node.loc?.start.column ?? 0,
                 },
+                fix: arg.loc
+                  ? {
+                      description: `Redact "${name}" from log output`,
+                      range: {
+                        start: {
+                          line: arg.loc.start.line,
+                          column: arg.loc.start.column,
+                        },
+                        end: {
+                          line: arg.loc.end.line,
+                          column: arg.loc.end.column,
+                        },
+                      },
+                      replacement: "'[REDACTED]'",
+                    }
+                  : undefined,
               });
               break;
             }

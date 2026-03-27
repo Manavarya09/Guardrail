@@ -28,6 +28,23 @@ const hardcodedLocalhostRule: Rule = {
               line: path.node.loc?.start.line ?? 0,
               column: path.node.loc?.start.column ?? 0,
             },
+            fix: path.node.loc
+              ? {
+                  description:
+                    'Replace hardcoded localhost URL with environment variable',
+                  range: {
+                    start: {
+                      line: path.node.loc.start.line,
+                      column: path.node.loc.start.column,
+                    },
+                    end: {
+                      line: path.node.loc.end.line,
+                      column: path.node.loc.end.column,
+                    },
+                  },
+                  replacement: `(process.env.API_URL ?? '${path.node.value}')`,
+                }
+              : undefined,
           });
         }
       },

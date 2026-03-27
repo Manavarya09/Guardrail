@@ -39,6 +39,23 @@ const insecureCorsRule: Rule = {
               line: path.node.loc?.start.line ?? 0,
               column: path.node.loc?.start.column ?? 0,
             },
+            fix: path.node.loc
+              ? {
+                  description: 'Add origin restriction to CORS config',
+                  range: {
+                    start: {
+                      line: path.node.loc.start.line,
+                      column: path.node.loc.start.column,
+                    },
+                    end: {
+                      line: path.node.loc.end.line,
+                      column: path.node.loc.end.column,
+                    },
+                  },
+                  replacement:
+                    "cors({ origin: process.env.ALLOWED_ORIGIN ?? 'http://localhost:3000' })",
+                }
+              : undefined,
           });
           return;
         }
@@ -64,6 +81,24 @@ const insecureCorsRule: Rule = {
                   line: prop.loc?.start.line ?? 0,
                   column: prop.loc?.start.column ?? 0,
                 },
+                fix: prop.value.loc
+                  ? {
+                      description:
+                        'Replace wildcard CORS origin with environment variable',
+                      range: {
+                        start: {
+                          line: prop.value.loc.start.line,
+                          column: prop.value.loc.start.column,
+                        },
+                        end: {
+                          line: prop.value.loc.end.line,
+                          column: prop.value.loc.end.column,
+                        },
+                      },
+                      replacement:
+                        "process.env.ALLOWED_ORIGIN ?? 'http://localhost:3000'",
+                    }
+                  : undefined,
               });
             }
           }

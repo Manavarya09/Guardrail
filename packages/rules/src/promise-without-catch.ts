@@ -72,6 +72,22 @@ const promiseWithoutCatchRule: Rule = {
               line: path.node.loc?.start.line ?? 0,
               column: path.node.loc?.start.column ?? 0,
             },
+            fix: path.node.loc
+              ? {
+                  description: 'Add .catch() handler to promise chain',
+                  range: {
+                    start: {
+                      line: path.node.loc.end.line,
+                      column: path.node.loc.end.column,
+                    },
+                    end: {
+                      line: path.node.loc.end.line,
+                      column: path.node.loc.end.column,
+                    },
+                  },
+                  replacement: '.catch((err) => { throw err; })',
+                }
+              : undefined,
           });
         }
       },
