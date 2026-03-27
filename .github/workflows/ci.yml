@@ -40,3 +40,24 @@ jobs:
 
       - name: Smoke test CLI
         run: node packages/cli/dist/index.js scan ./examples --json
+
+      - name: Smoke test fix (dry-run)
+        run: node packages/cli/dist/index.js fix ./examples --dry-run
+
+      - name: Smoke test diff
+        run: node packages/cli/dist/index.js diff HEAD --json
+
+      - name: Smoke test baseline
+        run: |
+          node packages/cli/dist/index.js baseline create
+          node packages/cli/dist/index.js baseline status
+
+      - name: Smoke test SARIF report
+        run: |
+          node packages/cli/dist/index.js scan ./examples --report sarif
+          test -f guardrail.sarif
+
+      - name: Smoke test Markdown report
+        run: |
+          node packages/cli/dist/index.js scan ./examples --report md
+          test -f GUARDRAIL-AUDIT.md
