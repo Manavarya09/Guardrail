@@ -99,7 +99,7 @@ Found 6 issues in 1 file (0.04s)
 
 const FEATURES = [
   {
-    title: "19 Built-in Rules",
+    title: "22 Built-in Rules",
     description:
       "Covers security, performance, code quality, and AI-codegen anti-patterns out of the box. Zero configuration needed.",
   },
@@ -139,6 +139,9 @@ const COMPARISON = [
   { feature: "any type abuse", eslint: "Plugin", sonar: true, snyk: false, guardrail: true },
   { feature: "Fetch without error handling", eslint: false, sonar: false, snyk: false, guardrail: true },
   { feature: "N+1 query detection", eslint: false, sonar: false, snyk: false, guardrail: true },
+  { feature: "eval() detection", eslint: "Plugin", sonar: true, snyk: false, guardrail: true },
+  { feature: "Unsafe regex (ReDoS)", eslint: "Plugin", sonar: false, snyk: false, guardrail: true },
+  { feature: "Secrets leaked in logs", eslint: false, sonar: false, snyk: false, guardrail: true },
   { feature: "AST-based auto-fix", eslint: false, sonar: false, snyk: false, guardrail: true },
   { feature: "Zero config", eslint: false, sonar: false, snyk: true, guardrail: true },
 ];
@@ -149,6 +152,9 @@ const RULES = [
   { id: "security/insecure-cors", severity: "high", category: "Security" },
   { id: "security/env-var-leak", severity: "high", category: "Security" },
   { id: "security/no-rate-limiting", severity: "info", category: "Security" },
+  { id: "security/unsafe-regex", severity: "high", category: "Security" },
+  { id: "security/no-eval", severity: "critical", category: "Security" },
+  { id: "security/no-secrets-in-logs", severity: "high", category: "Security" },
   { id: "ai-codegen/hallucinated-import", severity: "high", category: "AI-Codegen" },
   { id: "ai-codegen/placeholder-code", severity: "warning", category: "AI-Codegen" },
   { id: "ai-codegen/hardcoded-localhost", severity: "warning", category: "AI-Codegen" },
@@ -195,6 +201,7 @@ export default function LandingPage() {
             <a href="#features" className="text-sm text-neutral-400 hover:text-white transition-colors">Features</a>
             <a href="#rules" className="text-sm text-neutral-400 hover:text-white transition-colors">Rules</a>
             <a href="#compare" className="text-sm text-neutral-400 hover:text-white transition-colors">Compare</a>
+            <a href="https://www.npmjs.com/package/@guardrail-ai/cli" target="_blank" rel="noopener noreferrer" className="text-sm text-neutral-400 hover:text-white transition-colors">npm</a>
             <a
               href="https://github.com/Manavarya09/Guardrail"
               target="_blank"
@@ -229,7 +236,7 @@ export default function LandingPage() {
             >
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-neutral-800 bg-neutral-950/50 backdrop-blur-sm">
                 <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                <span className="text-sm text-neutral-400">19 rules across 4 categories</span>
+                <span className="text-sm text-neutral-400">22 rules across 4 categories</span>
               </div>
             </motion.div>
 
@@ -341,7 +348,7 @@ export default function LandingPage() {
           <p className="text-sm text-neutral-500 uppercase tracking-widest mb-4">Detection</p>
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
             <span className="bg-gradient-to-b from-white to-neutral-400 bg-clip-text text-transparent">
-              19 rules, 4 categories
+              22 rules, 4 categories
             </span>
           </h2>
           <p className="text-neutral-400 mb-12 max-w-2xl">
@@ -447,7 +454,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: Manavarya09/Guardrail@main
+      - uses: Manavarya09/Guardrail@v0.1.0
         with:
           target: './src'
           severity: 'warning'`}
@@ -455,6 +462,75 @@ jobs:
             </div>
           </FadeIn>
         </div>
+      </Section>
+
+      {/* ── Claude Code ─────────────────────────────────────── */}
+      <Section className="border-t border-neutral-900">
+        <div className="grid md:grid-cols-2 gap-16 items-center">
+          <FadeIn>
+            <p className="text-sm text-neutral-500 uppercase tracking-widest mb-4">AI Integration</p>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
+              <span className="bg-gradient-to-b from-white to-neutral-400 bg-clip-text text-transparent">
+                Works with Claude Code
+              </span>
+            </h2>
+            <p className="text-neutral-400 leading-relaxed mb-4">
+              Guardrail runs as an MCP server inside Claude Code. Scan files, fix issues,
+              and list rules — all from your AI assistant.
+            </p>
+            <p className="text-neutral-400 leading-relaxed">
+              Available on npm as <span className="text-neutral-200 font-mono text-sm">@guardrail-ai/mcp</span>
+            </p>
+          </FadeIn>
+
+          <FadeIn delay={0.15}>
+            <div className="bg-neutral-950 border border-neutral-800 rounded-xl overflow-hidden">
+              <div className="flex items-center gap-2 px-4 py-3 border-b border-neutral-800">
+                <span className="text-xs text-neutral-500 font-mono">.claude/settings.json</span>
+              </div>
+              <pre className="p-6 text-sm font-mono text-neutral-300 overflow-x-auto leading-6">
+{`{
+  "mcpServers": {
+    "guardrail": {
+      "command": "npx",
+      "args": ["@guardrail-ai/mcp"]
+    }
+  }
+}`}
+              </pre>
+            </div>
+          </FadeIn>
+        </div>
+      </Section>
+
+      {/* ── npm ────────────────────────────────────────────────── */}
+      <Section className="border-t border-neutral-900">
+        <FadeIn className="text-center">
+          <p className="text-sm text-neutral-500 uppercase tracking-widest mb-4">Install</p>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-10">
+            <span className="bg-gradient-to-b from-white to-neutral-400 bg-clip-text text-transparent">
+              Available on npm
+            </span>
+          </h2>
+          <div className="grid md:grid-cols-2 gap-4 max-w-2xl mx-auto text-left">
+            <div className="bg-neutral-950 border border-neutral-800 rounded-xl p-5">
+              <p className="text-xs text-neutral-500 mb-2">CLI</p>
+              <code className="text-sm text-neutral-200 font-mono">npm i -g @guardrail-ai/cli</code>
+            </div>
+            <div className="bg-neutral-950 border border-neutral-800 rounded-xl p-5">
+              <p className="text-xs text-neutral-500 mb-2">Core (programmatic)</p>
+              <code className="text-sm text-neutral-200 font-mono">npm i @guardrail-ai/core</code>
+            </div>
+            <div className="bg-neutral-950 border border-neutral-800 rounded-xl p-5">
+              <p className="text-xs text-neutral-500 mb-2">Rules</p>
+              <code className="text-sm text-neutral-200 font-mono">npm i @guardrail-ai/rules</code>
+            </div>
+            <div className="bg-neutral-950 border border-neutral-800 rounded-xl p-5">
+              <p className="text-xs text-neutral-500 mb-2">Claude Code Plugin</p>
+              <code className="text-sm text-neutral-200 font-mono">npm i @guardrail-ai/mcp</code>
+            </div>
+          </div>
+        </FadeIn>
       </Section>
 
       {/* ── CTA ────────────────────────────────────────────────── */}
@@ -501,6 +577,9 @@ jobs:
             </a>
             <a href="https://github.com/Manavarya09/Guardrail/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer" className="text-sm text-neutral-500 hover:text-white transition-colors">
               Contributing
+            </a>
+            <a href="https://www.npmjs.com/package/@guardrail-ai/cli" target="_blank" rel="noopener noreferrer" className="text-sm text-neutral-500 hover:text-white transition-colors">
+              npm
             </a>
             <a href="https://github.com/Manavarya09/Guardrail/blob/main/LICENSE" target="_blank" rel="noopener noreferrer" className="text-sm text-neutral-500 hover:text-white transition-colors">
               License
