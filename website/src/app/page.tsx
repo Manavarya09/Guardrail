@@ -177,6 +177,45 @@ export default function Page() {
         </div>
       </section>
 
+      {/* ── Install Strip ─────────────────────────────────── */}
+      <section className="border-t border-[#d4a01220] py-16">
+        <div className="max-w-3xl mx-auto px-6 text-center">
+          <F>
+            <p className="text-xs tracking-[0.3em] uppercase text-[#d4a012]/40 mb-6">Quick Start</p>
+          </F>
+          <F i={1}>
+            <div className="flex items-center justify-center border border-[#d4a01230] bg-[#0a0a0a]">
+              <code className="flex-1 text-base md:text-lg text-[#d4a012]/80 py-5 pl-8 tracking-wide text-left">
+                $ npx @guardrail-ai/cli scan .
+              </code>
+              <button
+                onClick={() => {
+                  navigator.clipboard?.writeText("npx @guardrail-ai/cli scan .");
+                }}
+                className="px-6 py-5 border-l border-[#d4a01230] text-[#d4a012]/40 hover:text-[#d4a012] hover:bg-[#d4a01210] transition-all"
+                title="Copy to clipboard"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" />
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg>
+              </button>
+            </div>
+          </F>
+          <F i={2}>
+            <div className="mt-6 flex items-center justify-center gap-8 text-[11px] tracking-[0.25em] uppercase text-[#d4a012]/30">
+              <span>22 rules</span>
+              <span className="text-[#d4a012]/15">|</span>
+              <span>4 categories</span>
+              <span className="text-[#d4a012]/15">|</span>
+              <span>ast auto-fix</span>
+              <span className="text-[#d4a012]/15">|</span>
+              <span>zero config</span>
+            </div>
+          </F>
+        </div>
+      </section>
+
       {/* ── Features ────────────────────────────────────────── */}
       <section className="border-t border-[#d4a01220]">
         <div className="max-w-7xl mx-auto grid md:grid-cols-3 divide-x divide-[#d4a01215]">
