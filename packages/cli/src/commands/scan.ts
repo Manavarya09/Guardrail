@@ -5,6 +5,7 @@ import { builtinRules } from '@guardrail-ai/rules';
 import { formatSummary } from '../formatter.js';
 import { generateHtmlReport } from '../reporters/html-reporter.js';
 import * as c from '../colors.js';
+import { printBanner } from '../banner.js';
 
 interface ScanOptions {
   severity?: string;
@@ -21,8 +22,7 @@ export async function scanCommand(
   const targetPath = resolve(cwd, target);
 
   if (!options.json) {
-    console.log('');
-    console.log(c.bold(c.cyan('  Guardrail')) + c.dim(' — scanning for issues...'));
+    printBanner();
     console.log(c.dim(`  Target: ${targetPath}`));
     console.log('');
   }

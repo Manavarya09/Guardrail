@@ -1,6 +1,6 @@
 {
   "name": "@guardrail-ai/core",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Core rule engine, types, and utilities for Guardrail",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

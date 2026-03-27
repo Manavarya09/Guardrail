@@ -5,6 +5,7 @@ import { builtinRules } from '@guardrail-ai/rules';
 import { FixerEngine } from '@guardrail-ai/fixer';
 import { formatDiff } from '../formatter.js';
 import * as c from '../colors.js';
+import { printBanner } from '../banner.js';
 
 interface FixOptions {
   dryRun?: boolean;
@@ -19,11 +20,8 @@ export async function fixCommand(
   const cwd = process.cwd();
   const targetPath = resolve(cwd, target);
 
-  console.log('');
-  console.log(
-    c.bold(c.cyan('  Guardrail')) +
-      c.dim(options.dryRun ? ' — dry-run fix mode' : ' — applying fixes...'),
-  );
+  printBanner();
+  console.log(c.dim(options.dryRun ? '  Mode: dry-run (no changes applied)' : '  Mode: applying fixes...'));
   console.log(c.dim(`  Target: ${targetPath}`));
   console.log('');
 

@@ -1,6 +1,6 @@
 {
   "name": "@guardrail-ai/rules",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Built-in detection rules for Guardrail (19 rules across security, performance, quality, and AI-codegen)",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

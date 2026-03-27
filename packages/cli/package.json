@@ -1,6 +1,6 @@
 {
   "name": "@guardrail-ai/cli",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "CLI for Guardrail — scan and fix AI-generated code for security, performance, and quality issues",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

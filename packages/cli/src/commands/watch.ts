@@ -5,6 +5,7 @@ import type { Severity } from '@guardrail-ai/core';
 import { builtinRules } from '@guardrail-ai/rules';
 import { formatFileResult } from '../formatter.js';
 import * as c from '../colors.js';
+import { printBanner } from '../banner.js';
 
 interface WatchOptions {
   severity?: string;
@@ -25,8 +26,8 @@ export async function watchCommand(
   const engine = new GuardrailEngine(config);
   engine.registerRules(builtinRules);
 
-  console.log('');
-  console.log(c.bold(c.cyan('  Guardrail')) + c.dim(' — watching for changes...'));
+  printBanner();
+  console.log(c.dim('  Watching for changes...'));
   console.log(c.dim(`  Target: ${targetPath}`));
   console.log('');
 
