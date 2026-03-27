@@ -2,6 +2,7 @@ import { readFile } from 'fs/promises';
 import { parseSource } from './parser.js';
 import { discoverFiles } from './file-discovery.js';
 import { ScanCache } from './cache.js';
+import { loadPlugins } from './plugin-loader.js';
 import type {
   Rule,
   RuleContext,
@@ -17,6 +18,7 @@ export class GuardrailEngine {
   private rules: Rule[] = [];
   private config: GuardrailConfig;
   private cache: ScanCache | null = null;
+  private pluginsLoaded = false;
 
   constructor(config: Partial<GuardrailConfig> = {}) {
     this.config = { ...DEFAULT_CONFIG, ...config };
@@ -36,6 +38,16 @@ export class GuardrailEngine {
 
   getRegisteredRules(): Rule[] {
     return [...this.rules];
+  }
+
+  private async ensurePluginsLoaded(): Promise<void> {
+    if (this.pluginsLoaded) return;
+    this.pluginsLoaded = true;
+
+    if (this.config.plugins && this.config.plugins.length > 0) {
+      const pluginRules = await loadPlugins(this.config.plugins);
+      this.registerRules(pluginRules);
+    }
   }
 
   private isRuleEnabled(ruleId: string): boolean {
@@ -59,6 +71,7 @@ export class GuardrailEngine {
   }
 
   async scanFile(filePath: string): Promise<ScanResult> {
+    await this.ensurePluginsLoaded();
     const source = await readFile(filePath, 'utf-8');
 
     // Check cache first
@@ -110,6 +123,7 @@ export class GuardrailEngine {
   }
 
   async scan(targetPath: string): Promise<ScanSummary> {
+    await this.ensurePluginsLoaded();
     const files = await discoverFiles(targetPath, this.config);
     const results: ScanResult[] = [];
 

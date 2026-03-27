@@ -42,6 +42,16 @@ export async function scanCommand(
   }
   engine.registerRules(rules);
 
+  // Load plugin rules from config
+  if (config.plugins && config.plugins.length > 0) {
+    const { loadPlugins } = await import('@guardrail-ai/core');
+    const pluginRules = await loadPlugins(config.plugins);
+    engine.registerRules(pluginRules);
+    if (!options.json && pluginRules.length > 0) {
+      console.log(c.dim(`  Loaded ${pluginRules.length} plugin rule${pluginRules.length > 1 ? 's' : ''}`));
+    }
+  }
+
   if (!options.json) {
     printBanner();
     const files = await discoverFiles(targetPath, config);
