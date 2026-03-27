@@ -130,61 +130,63 @@ export default function Page() {
           }}
         />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center w-full">
-          {/* Left */}
-          <div>
-            <F>
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-black uppercase leading-[0.95] tracking-tight text-[#fafafa]">
-                No Bad Code,
-                <br />
-                <span className="text-[#d4a012]">Only Safe Moves</span>
-              </h1>
-            </F>
-            <F i={1}>
-              <p className="mt-8 text-sm md:text-base text-[#d4a012]/60 max-w-md leading-relaxed uppercase tracking-wide">
-                We scan your AI-generated code for security vulnerabilities,
-                performance issues, and anti-patterns — then auto-fix them.
-              </p>
-            </F>
-            <F i={2}>
-              <div className="mt-10 flex gap-4">
-                <a
-                  href="https://github.com/Manavarya09/Guardrail"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="border border-[#d4a012] px-6 py-3 text-xs tracking-[0.2em] uppercase font-bold hover:bg-[#d4a012] hover:text-[#0a0a0a] transition-all"
-                >
-                  Get Started
-                </a>
-                <a
-                  href="https://www.npmjs.com/package/@guardrail-ai/cli"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="border border-[#d4a012]/30 px-6 py-3 text-xs tracking-[0.2em] uppercase font-bold text-[#d4a012]/60 hover:border-[#d4a012] hover:text-[#d4a012] transition-all"
-                >
-                  npm Install
-                </a>
-              </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
+          <div className="grid lg:grid-cols-[1fr_1fr] gap-8 items-center">
+            {/* Left */}
+            <div className="lg:pr-8">
+              <F>
+                <h1 className="text-5xl md:text-7xl lg:text-8xl font-black uppercase leading-[0.95] tracking-tight text-[#fafafa]">
+                  No Bad Code,
+                  <br />
+                  <span className="text-[#d4a012]">Only Safe Moves</span>
+                </h1>
+              </F>
+              <F i={1}>
+                <p className="mt-8 text-sm md:text-base text-[#d4a012]/60 max-w-lg leading-relaxed tracking-wide">
+                  We scan your AI-generated code for security vulnerabilities,
+                  performance issues, and anti-patterns — then auto-fix them.
+                </p>
+              </F>
+              <F i={2}>
+                <div className="mt-10 flex flex-wrap gap-4">
+                  <a
+                    href="https://github.com/Manavarya09/Guardrail"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="border border-[#d4a012] px-6 py-3 text-xs tracking-[0.2em] uppercase font-bold hover:bg-[#d4a012] hover:text-[#0a0a0a] transition-all"
+                  >
+                    Get Started
+                  </a>
+                  <a
+                    href="https://www.npmjs.com/package/@guardrail-ai/cli"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="border border-[#d4a012]/30 px-6 py-3 text-xs tracking-[0.2em] uppercase font-bold text-[#d4a012]/60 hover:border-[#d4a012] hover:text-[#d4a012] transition-all"
+                  >
+                    npm Install
+                  </a>
+                </div>
+              </F>
+            </div>
+
+            {/* Right — Globe */}
+            <F i={3} className="h-[400px] md:h-[500px] lg:h-[600px] flex items-center justify-center">
+              <Globe />
             </F>
           </div>
-
-          {/* Right — Globe */}
-          <F i={3} className="h-[400px] md:h-[500px] lg:h-[600px]">
-            <Globe />
-          </F>
         </div>
       </section>
 
       {/* ── Features ────────────────────────────────────────── */}
-      <section className="border-t border-[#d4a01220] py-0">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-3">
+      <section className="border-t border-[#d4a01220]">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-3 divide-x divide-[#d4a01215]">
           {FEATURES.map((f, i) => (
             <F key={f.title} i={i}>
-              <div className="border-r border-[#d4a01215] last:border-r-0 p-10 md:p-12 h-full">
-                <h3 className="text-xs tracking-[0.3em] uppercase font-bold mb-4 text-[#fafafa]">
+              <div className="p-8 md:p-10 lg:p-12 h-full">
+                <h3 className="text-[11px] tracking-[0.3em] uppercase font-bold mb-4 text-[#fafafa]">
                   {f.title}
                 </h3>
-                <p className="text-[13px] leading-relaxed text-[#d4a012]/50 uppercase tracking-wide">
+                <p className="text-[13px] leading-[1.7] text-[#d4a012]/50">
                   {f.desc}
                 </p>
               </div>
@@ -213,7 +215,7 @@ export default function Page() {
             <F>
               <div className="p-10 border-b md:border-b-0 md:border-r border-[#d4a01220]">
                 <p className="text-xs tracking-[0.3em] uppercase text-[#d4a012]/40 mb-4">/ Mission</p>
-                <p className="text-sm text-[#d4a012]/60 uppercase tracking-wide leading-relaxed">
+                <p className="text-sm text-[#d4a012]/60 tracking-wide leading-relaxed">
                   To become the default guardian that prevents developers from shipping
                   insecure or unscalable AI-generated applications. 22 rules. 4 categories.
                   Zero configuration.
@@ -223,7 +225,7 @@ export default function Page() {
             <F i={1}>
               <div className="p-10">
                 <p className="text-xs tracking-[0.3em] uppercase text-[#d4a012]/40 mb-4">/ Vision</p>
-                <p className="text-sm text-[#d4a012]/60 uppercase tracking-wide leading-relaxed">
+                <p className="text-sm text-[#d4a012]/60 tracking-wide leading-relaxed">
                   A world where every AI-generated line of code passes through a safety
                   layer before it reaches production. Open source. Community driven. Built
                   for the era of Copilot, ChatGPT, and Claude.
