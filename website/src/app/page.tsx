@@ -420,41 +420,81 @@ guardrail fix ./src --dry-run`}
         </div>
       </section>
 
-      {/* ── CTA ─────────────────────────────────────────────── */}
-      <section className="border-t border-[#d4a01220] py-24">
-        <div className="max-w-4xl mx-auto px-6 text-center">
+      {/* ── Star CTA ──────────────────────────────────────── */}
+      <section className="border-t border-[#d4a01220] py-28 md:py-36 relative overflow-hidden">
+        <div
+          className="absolute inset-0 opacity-[0.04]"
+          style={{
+            backgroundImage: `linear-gradient(to right, #d4a012 1px, transparent 1px), linear-gradient(to bottom, #d4a012 1px, transparent 1px)`,
+            backgroundSize: "80px 80px",
+          }}
+        />
+        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
           <F>
-            <h2 className="text-3xl md:text-5xl font-black uppercase text-[#fafafa] mb-6">
-              Start Scanning<br /><span className="text-[#d4a012]">In Seconds</span>
-            </h2>
+            <p className="text-xs tracking-[0.3em] uppercase text-[#d4a012]/40 mb-8">/ Open Source</p>
           </F>
           <F i={1}>
-            <p className="text-sm text-[#d4a012]/50 uppercase tracking-widest mb-10">
-              Open source. Zero config. 22 rules. AST auto-fix.
-            </p>
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-black uppercase text-[#fafafa] leading-[1]">
+              Built in public.
+              <br />
+              <span className="text-[#d4a012]">Backed by you.</span>
+            </h2>
           </F>
           <F i={2}>
-            <div className="inline-block border border-[#d4a01230] px-8 py-4 mb-10">
-              <code className="text-sm text-[#d4a012]/80">$ npx @guardrail-ai/cli scan .</code>
-            </div>
+            <p className="mt-8 text-sm text-[#d4a012]/50 max-w-lg mx-auto leading-relaxed">
+              Guardrail is free, open source, and community driven. If it saves you from
+              shipping one bad line of AI-generated code, give us a star. It keeps the project alive.
+            </p>
           </F>
           <F i={3}>
-            <div className="flex justify-center gap-4">
+            <a
+              href="https://github.com/Manavarya09/Guardrail"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-10 inline-flex items-center gap-3 border-2 border-[#d4a012] px-10 py-4 text-sm tracking-[0.2em] uppercase font-bold hover:bg-[#d4a012] hover:text-[#0a0a0a] transition-all group"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:fill-[#0a0a0a] transition-all">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+              </svg>
+              Star on GitHub
+            </a>
+          </F>
+          <F i={4}>
+            <div className="mt-12 flex justify-center gap-6 flex-wrap">
               <a
-                href="https://github.com/Manavarya09/Guardrail"
+                href="https://www.npmjs.com/package/@guardrail-ai/cli"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="border border-[#d4a012] px-8 py-3 text-xs tracking-[0.2em] uppercase font-bold hover:bg-[#d4a012] hover:text-[#0a0a0a] transition-all"
+                className="text-[11px] tracking-[0.2em] uppercase text-[#d4a012]/30 hover:text-[#d4a012] transition-colors"
               >
-                View on GitHub
+                npm
               </a>
+              <span className="text-[#d4a012]/15">|</span>
               <a
                 href="https://github.com/Manavarya09/Guardrail/blob/main/CONTRIBUTING.md"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="border border-[#d4a012]/30 px-8 py-3 text-xs tracking-[0.2em] uppercase font-bold text-[#d4a012]/60 hover:border-[#d4a012] hover:text-[#d4a012] transition-all"
+                className="text-[11px] tracking-[0.2em] uppercase text-[#d4a012]/30 hover:text-[#d4a012] transition-colors"
               >
                 Contribute
+              </a>
+              <span className="text-[#d4a012]/15">|</span>
+              <a
+                href="https://github.com/Manavarya09/Guardrail/issues"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[11px] tracking-[0.2em] uppercase text-[#d4a012]/30 hover:text-[#d4a012] transition-colors"
+              >
+                Report Issue
+              </a>
+              <span className="text-[#d4a012]/15">|</span>
+              <a
+                href="https://github.com/Manavarya09/Guardrail/discussions"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[11px] tracking-[0.2em] uppercase text-[#d4a012]/30 hover:text-[#d4a012] transition-colors"
+              >
+                Discussions
               </a>
             </div>
           </F>
