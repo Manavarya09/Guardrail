@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -13,9 +15,9 @@ html {
 }
 
 body {
-  background: #0a0a0a;
+  background: #050505;
   color: #d4a012;
-  font-family: "SF Mono", "Fira Code", "Consolas", monospace;
+  font-family: "Inter", -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
@@ -23,16 +25,65 @@ body {
 
 ::selection {
   background: #d4a012;
-  color: #0a0a0a;
+  color: #050505;
 }
 
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 5px;
 }
 ::-webkit-scrollbar-track {
-  background: #0a0a0a;
+  background: #050505;
 }
 ::-webkit-scrollbar-thumb {
-  background: #8a6b0a;
+  background: #d4a01240;
   border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #d4a01280;
+}
+
+.font-mono {
+  font-family: "JetBrains Mono", "SF Mono", monospace;
+}
+
+/* Noise grain overlay */
+.grain::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+/* Glow effect for key elements */
+.glow-amber {
+  box-shadow: 0 0 60px -12px #d4a01230, 0 0 120px -24px #d4a01215;
+}
+
+/* Animated gradient border */
+@keyframes borderGlow {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.8; }
+}
+
+.border-glow {
+  animation: borderGlow 3s ease-in-out infinite;
+}
+
+/* Scan line effect */
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+.scanline::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #d4a01240, transparent);
+  animation: scanline 8s linear infinite;
 }
