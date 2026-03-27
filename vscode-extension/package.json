@@ -1,0 +1,107 @@
+{
+  "name": "guardrail",
+  "displayName": "Guardrail — AI Code Scanner",
+  "description": "Real-time security scanning for AI-generated code. Detects vulnerabilities, bad patterns, and anti-patterns that ESLint/Snyk miss.",
+  "version": "0.2.1",
+  "publisher": "guardrail-ai",
+  "icon": "icon.png",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Linters",
+    "Programming Languages",
+    "Other"
+  ],
+  "keywords": [
+    "security",
+    "linter",
+    "ai-code",
+    "copilot",
+    "chatgpt",
+    "claude",
+    "vulnerability",
+    "sql-injection",
+    "xss",
+    "code-quality"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Manavarya09/Guardrail"
+  },
+  "activationEvents": [
+    "onLanguage:javascript",
+    "onLanguage:typescript",
+    "onLanguage:javascriptreact",
+    "onLanguage:typescriptreact"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "guardrail.scanFile",
+        "title": "Guardrail: Scan Current File"
+      },
+      {
+        "command": "guardrail.scanWorkspace",
+        "title": "Guardrail: Scan Workspace"
+      },
+      {
+        "command": "guardrail.fixFile",
+        "title": "Guardrail: Fix Current File"
+      },
+      {
+        "command": "guardrail.toggleOnSave",
+        "title": "Guardrail: Toggle Scan on Save"
+      }
+    ],
+    "configuration": {
+      "title": "Guardrail",
+      "properties": {
+        "guardrail.enable": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable Guardrail scanning"
+        },
+        "guardrail.scanOnSave": {
+          "type": "boolean",
+          "default": true,
+          "description": "Automatically scan files on save"
+        },
+        "guardrail.scanOnType": {
+          "type": "boolean",
+          "default": false,
+          "description": "Scan as you type (may impact performance on large files)"
+        },
+        "guardrail.severity": {
+          "type": "string",
+          "default": "info",
+          "enum": ["critical", "high", "warning", "info"],
+          "description": "Minimum severity level to report"
+        },
+        "guardrail.disabledRules": {
+          "type": "array",
+          "default": [],
+          "items": { "type": "string" },
+          "description": "List of rule IDs to disable (e.g., ai-codegen/magic-numbers)"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "build": "esbuild src/extension.ts --bundle --outfile=dist/extension.js --external:vscode --format=cjs --platform=node --target=node18",
+    "watch": "npm run build -- --watch",
+    "package": "vsce package",
+    "publish": "vsce publish"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "esbuild": "^0.20.0",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@guardrail-ai/core": "0.2.1",
+    "@guardrail-ai/rules": "0.2.1",
+    "@guardrail-ai/fixer": "0.2.1"
+  }
+}
