@@ -5,6 +5,7 @@ dist/
 .DS_Store
 coverage/
 *.log
+*.vsix
 guardrail-report.html
 vitest.config.js
 vitest.config.js.map
